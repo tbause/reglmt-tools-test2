@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <title>Set from config</title>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro|PT+Sans+Caption|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/site.css" />
+    <link rel="icon" href="css/favicon.ico" />
+
+    <script src="proto-lmt.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">&nbsp;</div>
+            <header class="col-8">
+                <div id="notifications"></div>
+                <h1 id="doc-title">Error: Should be set from config</h1>
+                <div id="doc-description"></div>
+            </header>
+            <div class="col">&nbsp;</div>
+        </div>
+        <div class="row">
+            <div class="col">&nbsp;</div>
+            <main class="col-8">
+                <!--  ====================   Raw text   ====================    -->
+                <div class="container">
+                    <div class="row">
+                        <div id="introduction-markdown" class="col-10">
+## Language metadata table prototype
+
+This is page works as follows:
+
+1. Loads the LMT into the browser dynamically as xml from a known location
+2. Repeat with the  xslt style sheet from a known location
+3. Apply the transform to the XML and display the results in a an element called `rendering`
+
+Code is on [GitHub](https://github.com/mrmxf/proto-lmt). With a little work, there could be several renderings available from a menu.
+                        </div>
+                    </div>
+                </div>
+                <!--  ====================  App response  ====================    -->
+                <div id="rendering" class="col-10"></div>
+
+            </main>
+            <div class="col">&nbsp;</div>
+        </div>
+    </div>
+    <script>
+        // Everything should be pretty much loaded so start the app
+        app.start()
+    </script>
+</body>
+
+</html>
