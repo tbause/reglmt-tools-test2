@@ -12,7 +12,6 @@
 
 import marked from 'marked'
 import Prism from 'prismjs'
-import loadLanguages from 'prismjs/components'
 
 class thisapp {
 
@@ -30,8 +29,8 @@ class thisapp {
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4) {
-                    msg = xhr.responseText
-                    callback(msg)
+                    let msg = xhr.responseText
+                    resolve(msg)
                 }
             };
             xhr.open('GET', url, true);
@@ -55,8 +54,11 @@ class thisapp {
         let introduction = this.element("introduction-markdown")
         introduction.innerHTML = marked(introduction.textContent)
 
-        loadLanguages(['html', 'xml'])
         this.lmt = await this.fetch('lmt.xml ')
+        const lmt_html = Prism.highlight(this.lmt, Prism.languages.xml, 'xml');
+
+        let target_rendering = this.element("rendering")
+        target_rendering.innerHTML = lmt_html
     }
 }
 export default thisapp
