@@ -13,11 +13,14 @@
 import marked from 'marked'
 import Prism from 'prismjs'
 
+import lmt_buttons from './lmt-buttons'
+
 class thisapp {
 
-    cosntructor(){
+    constructor() {
 
-        this.lmt = `<?xml version="1.0" encoding="UTF-8"?>\n<Zthes></Zthes>`
+        this.lmt = `<?xml version="1.0" encoding="UTF-8"?>\n<Zthes>Loaded during start()</Zthes>`
+        this.render_element = 'set-during-start()'
     }
 
     element(id) {
@@ -46,19 +49,27 @@ class thisapp {
     }
 
     async start() {
-
+        document.title = this.defaults.app_title
         this.element("doc-title").innerHTML = this.defaults.app_title
         this.element("doc-description").innerHTML = this.defaults.app_description
-        this.element("rendering").innerHTML = `<p>XML loading...</p>`
 
-        let introduction = this.element("introduction-markdown")
-        introduction.innerHTML = marked(introduction.textContent)
+        //initialise the element for rendering the output
+        this.render_element = this.element('lmt-rendering')
 
-        this.lmt = await this.fetch('lmt.xml ')
-        const lmt_html = Prism.highlight(this.lmt, Prism.languages.xml, 'xml');
+        //create the buttons in the element with the given id
+        let buttons = new lmt_buttons()
+        buttons.render('lmt-buttons')
 
-        let target_rendering = this.element("rendering")
-        target_rendering.innerHTML = lmt_html
+        this.element("lmt-rendering").innerHTML = `<p>XML loading...</p>`
+
+        this.lmt_narrative = await this.fetch("lmt-narrative.md")
+        this.element("lmt-narrative").innerHTML = marked(this.lmt_narrative)
+
+        this.lmt = await this.fetch('lmt.xml')
+        this.render_element.innerHTML = "rendering..."
+        const lmt_html = '<pre>' + Prism.highlight(this.lmt, Prism.languages.xml, 'xml') + '</pre>'
+
+        this.render_element.innerHTML = lmt_html
     }
 }
 export default thisapp

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server ./dist/",
     "build": "webpack"
   },
   "author": "mrmxf",
@@ -26,6 +27,7 @@
     "prismjs": "^1.19.0"
   },
   "devDependencies": {
+    "http-server": "^0.12.1",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   },

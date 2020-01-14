@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/site.css" />
-    <link rel="stylesheet" href="css/prism.css" />
+    <link rel="stylesheet" href="css/prism-twilight.css" />
     <link rel="icon" href="css/favicon.ico" />
 
     <script src="proto-lmt.js"></script>
@@ -17,42 +17,37 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col">&nbsp;</div>
-            <header class="col-8">
+            <div class="col col-1"><!-- left gutter --></div>
+            <header class="col-md-10">
                 <div id="notifications"></div>
                 <h1 id="doc-title">Error: Should be set from config</h1>
                 <div id="doc-description"></div>
             </header>
-            <div class="col">&nbsp;</div>
+            <div class="col"><!-- right gutter --></div>
         </div>
         <div class="row">
-            <div class="col">&nbsp;</div>
-            <main class="col-8">
-                <!--  ====================   Raw text   ====================    -->
+            <div class="col col-1"><!-- left gutter --></div>
+            <main class="col-md-10">
                 <div class="container">
                     <div class="row">
-                        <div id="introduction-markdown" class="col-10">
-## Language metadata table prototype
-
-This is page works as follows:
-
-1. Loads the LMT into the browser dynamically as xml from a known location
-2. Repeat with the  xslt style sheet from a known location
-3. Apply the transform to the XML and display the results in a an element called `rendering`
-
-Code is on [GitHub](https://github.com/mrmxf/proto-lmt). With a little work, there could be several renderings available from a menu.
-                        </div>
+                        <!--  ==========  lmt-narrative.md rendered here  ==========  -->
+                        <div id="lmt-narrative" class="col"></div>
+                    </div>
+                    <div class="row">
+                        <!--  ==========  lmt-buttons rendered here  ==========  -->
+                        <div id="lmt-buttons" class="col"></div>
+                    </div>
+                    <div class="row">
+                        <!--  ==========  LMT XML / tables rendered here  ==========    -->
+                        <div id="lmt-rendering"></div>
                     </div>
                 </div>
-                <!--  ====================  App response  ====================    -->
-                <div id="rendering" class="col-10"></div>
-
             </main>
-            <div class="col">&nbsp;</div>
+            <div class="col"><!-- right gutter --></div>
         </div>
     </div>
     <script>
-        // Everything should be pretty much loaded so start the app
+        // Everything should be pretty much loaded into the browser so start the app
         app.start()
     </script>
 </body>

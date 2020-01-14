@@ -241,6 +241,42 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _thi
 
 /***/ }),
 
+/***/ "./src/lmt-button-schema.js":
+/*!**********************************!*\
+  !*** ./src/lmt-button-schema.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/** @module lmt-button-schema\n * \n * validate LMT with the schema - provide a modal dialog\n */\nclass lmt_button_schema {\n\n    consrtuctor() {\n    }\n\n    /** click handler  */\n    eventListener() {\n        app.render_element.innerHTML = \"Validate the XML functionality\"\n    }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (lmt_button_schema);\n\n//# sourceURL=webpack:///./src/lmt-button-schema.js?");
+
+/***/ }),
+
+/***/ "./src/lmt-button-xml.js":
+/*!*******************************!*\
+  !*** ./src/lmt-button-xml.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/** @module lmt-button-xml\n * \n * render LMT as raw XML using prismjs\n */\nclass lmt_button_xml {\n\n    consrtuctor() {\n    }\n\n    /** click handler  */\n    eventListener() {\n        app.render_element.innerHTML = \"Some Raw XML\"\n    }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (lmt_button_xml);\n\n//# sourceURL=webpack:///./src/lmt-button-xml.js?");
+
+/***/ }),
+
+/***/ "./src/lmt-buttons.js":
+/*!****************************!*\
+  !*** ./src/lmt-buttons.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _lmt_button_xml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lmt-button-xml */ \"./src/lmt-button-xml.js\");\n/* harmony import */ var _lmt_button_schema__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lmt-button-schema */ \"./src/lmt-button-schema.js\");\n/** @module lmt-buttons\n * \n * render all the buttons and link them to the required render function\n */\n\n\n\n\nlet xml_eventListener = new _lmt_button_xml__WEBPACK_IMPORTED_MODULE_0__[\"default\"]().eventListener\nlet schema_eventListener = new _lmt_button_schema__WEBPACK_IMPORTED_MODULE_1__[\"default\"]().eventListener\n\n\nclass lmt_buttons {\n\n    constructor() {\n        this.action_buttons = {\n            xml: {\n                title: \"raw\",\n                eventListener: xml_eventListener,\n            },\n            \"schema\": {\n                title: \"validate\",\n                eventListener: schema_eventListener,\n            },\n        }\n    }\n\n    render( buttons_id ) {\n        let buttons_element = document.getElementById(  buttons_id  )\n        let btn_class = \"btn btn-primary\"\n\n        for (let action in this.action_buttons) {\n            let button = document.createElement('button')\n            button.addEventListener('click', this.action_buttons[action].eventListener)\n            button.innerHTML = this.action_buttons[action].title\n            button.setAttribute('id', `btn-${this.action_buttons[action].title}`)\n            button.setAttribute('class', btn_class)\n            btn_class = \"btn btn-info\"\n\n            buttons_element.appendChild(button)\n        }\n    }\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (lmt_buttons);\n\n//# sourceURL=webpack:///./src/lmt-buttons.js?");
+
+/***/ }),
+
 /***/ "./src/thisapp.js":
 /*!************************!*\
   !*** ./src/thisapp.js ***!
@@ -249,7 +285,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _thi
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! marked */ \"./node_modules/marked/src/marked.js\");\n/* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(marked__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prismjs */ \"./node_modules/prismjs/prism.js\");\n/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prismjs__WEBPACK_IMPORTED_MODULE_1__);\n/** @module prot-lmt\n * \n * provide the following methods:\n * \n *  - fetch( url )             return {async} a document from the server\n *  - transform ( lmt, xform ) return {async} the transformed doc\n *  - element ( id )           return {sync} an element by id or throw an exception\n * \n *  - defaults are loaded from config.js at packing time\n *  - start() is called when the page has loaded\n */\n\n\n\n\nclass thisapp {\n\n    cosntructor(){\n\n        this.lmt = `<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<Zthes></Zthes>`\n    }\n\n    element(id) {\n        return document.getElementById(id)\n    }\n\n    async fetch(url) {\n        return new Promise((resolve, reject) => {\n            var xhr = new XMLHttpRequest();\n            xhr.onreadystatechange = function () {\n                if (this.readyState == 4) {\n                    let msg = xhr.responseText\n                    resolve(msg)\n                }\n            };\n            xhr.open('GET', url, true);\n            xhr.send()\n        })\n    }\n\n    render_xml() {\n\n        code = `<pre><code class=\"language-css\">p {color: red }</code></pre>`\n        const htm = prismjs__WEBPACK_IMPORTED_MODULE_1___default.a.highlight(code, prismjs__WEBPACK_IMPORTED_MODULE_1___default.a.languages.html, 'html');\n        return htm\n    }\n\n    async start() {\n\n        this.element(\"doc-title\").innerHTML = this.defaults.app_title\n        this.element(\"doc-description\").innerHTML = this.defaults.app_description\n        this.element(\"rendering\").innerHTML = `<p>XML loading...</p>`\n\n        let introduction = this.element(\"introduction-markdown\")\n        introduction.innerHTML = marked__WEBPACK_IMPORTED_MODULE_0___default()(introduction.textContent)\n\n        this.lmt = await this.fetch('lmt.xml ')\n        const lmt_html = prismjs__WEBPACK_IMPORTED_MODULE_1___default.a.highlight(this.lmt, prismjs__WEBPACK_IMPORTED_MODULE_1___default.a.languages.xml, 'xml');\n\n        let target_rendering = this.element(\"rendering\")\n        target_rendering.innerHTML = lmt_html\n    }\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (thisapp);\n\n//# sourceURL=webpack:///./src/thisapp.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! marked */ \"./node_modules/marked/src/marked.js\");\n/* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(marked__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prismjs */ \"./node_modules/prismjs/prism.js\");\n/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prismjs__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _lmt_buttons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lmt-buttons */ \"./src/lmt-buttons.js\");\n/** @module prot-lmt\n * \n * provide the following methods:\n * \n *  - fetch( url )             return {async} a document from the server\n *  - transform ( lmt, xform ) return {async} the transformed doc\n *  - element ( id )           return {sync} an element by id or throw an exception\n * \n *  - defaults are loaded from config.js at packing time\n *  - start() is called when the page has loaded\n */\n\n\n\n\n\n\nclass thisapp {\n\n    constructor() {\n\n        this.lmt = `<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<Zthes>Loaded during start()</Zthes>`\n        this.render_element = 'set-during-start()'\n    }\n\n    element(id) {\n        return document.getElementById(id)\n    }\n\n    async fetch(url) {\n        return new Promise((resolve, reject) => {\n            var xhr = new XMLHttpRequest();\n            xhr.onreadystatechange = function () {\n                if (this.readyState == 4) {\n                    let msg = xhr.responseText\n                    resolve(msg)\n                }\n            };\n            xhr.open('GET', url, true);\n            xhr.send()\n        })\n    }\n\n    render_xml() {\n\n        code = `<pre><code class=\"language-css\">p {color: red }</code></pre>`\n        const htm = prismjs__WEBPACK_IMPORTED_MODULE_1___default.a.highlight(code, prismjs__WEBPACK_IMPORTED_MODULE_1___default.a.languages.html, 'html');\n        return htm\n    }\n\n    async start() {\n        document.title = this.defaults.app_title\n        this.element(\"doc-title\").innerHTML = this.defaults.app_title\n        this.element(\"doc-description\").innerHTML = this.defaults.app_description\n\n        //initialise the element for rendering the output\n        this.render_element = this.element('lmt-rendering')\n\n        //create the buttons in the element with the given id\n        let buttons = new _lmt_buttons__WEBPACK_IMPORTED_MODULE_2__[\"default\"]()\n        buttons.render('lmt-buttons')\n\n        this.element(\"lmt-rendering\").innerHTML = `<p>XML loading...</p>`\n\n        this.lmt_narrative = await this.fetch(\"lmt-narrative.md\")\n        this.element(\"lmt-narrative\").innerHTML = marked__WEBPACK_IMPORTED_MODULE_0___default()(this.lmt_narrative)\n\n        this.lmt = await this.fetch('lmt.xml')\n        this.render_element.innerHTML = \"rendering...\"\n        const lmt_html = '<pre>' + prismjs__WEBPACK_IMPORTED_MODULE_1___default.a.highlight(this.lmt, prismjs__WEBPACK_IMPORTED_MODULE_1___default.a.languages.xml, 'xml') + '</pre>'\n\n        this.render_element.innerHTML = lmt_html\n    }\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (thisapp);\n\n//# sourceURL=webpack:///./src/thisapp.js?");
 
 /***/ })
 
