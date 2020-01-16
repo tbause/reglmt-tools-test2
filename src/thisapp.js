@@ -13,7 +13,7 @@
 import marked from 'marked'
 import Prism from 'prismjs'
 
-import lmt_buttons from './lmt-buttons'
+import lmt_actions from './lmt-actions'
 
 class thisapp {
 
@@ -56,9 +56,9 @@ class thisapp {
         //initialise the element for rendering the output
         this.render_element = this.element('lmt-rendering')
 
-        //create the buttons in the element with the given id
-        let buttons = new lmt_buttons()
-        buttons.render('lmt-buttons')
+        //create the action buttons in the element with the given id
+        let buttons = new lmt_actions()
+        buttons.render('lmt-action-buttons')
 
         this.element("lmt-rendering").innerHTML = `<p>XML loading...</p>`
 
@@ -66,10 +66,10 @@ class thisapp {
         this.element("lmt-narrative").innerHTML = marked(this.lmt_narrative)
 
         this.lmt = await this.fetch('lmt.xml')
-        this.render_element.innerHTML = "rendering..."
-        const lmt_html = '<pre>' + Prism.highlight(this.lmt, Prism.languages.xml, 'xml') + '</pre>'
+        this.schema = await this.fetch('lmt-schema.xsd')
 
-        this.render_element.innerHTML = lmt_html
+        this.render_element.innerHTML = "rendering..."
+        buttons.default_action()
     }
 }
 export default thisapp

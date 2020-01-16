@@ -24,7 +24,9 @@
   ],
   "dependencies": {
     "marked": "^0.8.0",
-    "prismjs": "^1.19.0"
+    "prismjs": "^1.19.0",
+    "tablesort": "^5.1.0",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
     "http-server": "^0.12.1",

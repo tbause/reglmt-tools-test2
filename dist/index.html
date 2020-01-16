@@ -17,16 +17,22 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col col-1"><!-- left gutter --></div>
+            <div class="col col-1">
+                <!-- left gutter -->
+            </div>
             <header class="col-md-10">
                 <div id="notifications"></div>
                 <h1 id="doc-title">Error: Should be set from config</h1>
                 <div id="doc-description"></div>
             </header>
-            <div class="col"><!-- right gutter --></div>
+            <div class="col">
+                <!-- right gutter -->
+            </div>
         </div>
         <div class="row">
-            <div class="col col-1"><!-- left gutter --></div>
+            <div class="col col-1">
+                <!-- left gutter -->
+            </div>
             <main class="col-md-10">
                 <div class="container">
                     <div class="row">
@@ -34,18 +40,23 @@
                         <div id="lmt-narrative" class="col"></div>
                     </div>
                     <div class="row">
-                        <!--  ==========  lmt-buttons rendered here  ==========  -->
-                        <div id="lmt-buttons" class="col"></div>
-                    </div>
-                    <div class="row">
-                        <!--  ==========  LMT XML / tables rendered here  ==========    -->
-                        <div id="lmt-rendering" class="col"></div>
+                        <!--  ==========  lmt-action-buttons rendered here  ==========  -->
+                        <div id="lmt-action-buttons" class="col"></div>
                     </div>
                 </div>
             </main>
-            <div class="col"><!-- right gutter --></div>
+            <div class="col">
+                <!-- right gutter -->
+            </div>
         </div>
     </div>
+    <!--  ==========  LMT XML / tables rendered here  ==========    -->
+    <!--
+                The rendered area is intentionally outside the main windows because some
+                of the tables are REALLY wide and require scroll bars.
+                All bootstrap grid positioning is left to the underlying Javascript
+            -->
+    <div id="lmt-rendering" class="col"></div>
     <script>
         // Everything should be pretty much loaded into the browser so start the app
         app.start()

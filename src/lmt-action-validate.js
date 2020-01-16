@@ -1,10 +1,10 @@
-/** @module lmt-button-schema
+/** @module lmt-action-validate
  * 
  * validate LMT with the schema - provide a modal dialog
  */
-class lmt_button_schema {
+class lmt_action_validate {
 
-    consrtuctor() {
+    constructor() {
     }
 
     /** click handler  */
@@ -51,4 +51,4 @@ class lmt_button_schema {
     }
 }
 
-export default lmt_button_schema
+export default lmt_action_validate
