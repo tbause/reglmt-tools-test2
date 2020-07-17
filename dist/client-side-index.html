@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <title>Set from config</title>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro|PT+Sans+Caption|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="css/prism-twilight.css" />
+    <link rel="icon" href="css/favicon.ico" />
+
+    <script src="js/client-side-proto-lmt.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col col-1">
+                <!-- left gutter -->
+            </div>
+            <header class="col-md-10">
+                <div id="notifications"></div>
+                <div><button id="view-client-side" class="btn btn-danger col"  onclick="location.replace('/')">CLIENT-SIDE view &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; click to return</button></div>
+                <h1 id="doc-title">Error: Should be set from config</h1>
+                <div id="doc-description"></div>
+            </header>
+            <div class="col">
+                <!-- right gutter -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-1">
+                <!-- left gutter -->
+            </div>
+            <main class="col-md-10">
+                <div class="container">
+                    <div class="row">
+                        <!--  ==========  lmt-narrative.md rendered here  ==========  -->
+                        <div id="lmt-narrative" class="col"></div>
+                    </div>
+                    <div class="row">
+                        <!--  ==========  lmt-action-buttons rendered here  ==========  -->
+                        <div id="lmt-action-buttons" class="col"></div>
+                    </div>
+                </div>
+            </main>
+            <div class="col">
+                <!-- right gutter -->
+            </div>
+        </div>
+    </div>
+    <!--  ==========  LMT XML / tables rendered here  ==========    -->
+    <!--
+                The rendered area is intentionally outside the main windows because some
+                of the tables are REALLY wide and require scroll bars.
+                All bootstrap grid positioning is left to the underlying Javascript
+            -->
+    <div id="lmt-rendering" class="col"></div>
+    <script>
+        // Everything should be pretty much loaded into the browser so start the app
+        app.start()
+    </script>
+</body>
+
+</html>

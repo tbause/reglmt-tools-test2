@@ -1,4 +1,4 @@
-/** @module prot-lmt
+/** @module lmt-proto-ui-app
  * 
  * provide the following methods:
  * 
@@ -13,7 +13,7 @@
 import marked from 'marked'
 import Prism from 'prismjs'
 
-import lmt_actions from './lmt-actions'
+import lmt_actions from './ui/lmt-ui-buttons'
 
 class thisapp {
 
@@ -49,9 +49,11 @@ class thisapp {
     }
 
     async start() {
-        document.title = this.defaults.app_title
-        this.element("doc-title").innerHTML = this.defaults.app_title
-        this.element("doc-description").innerHTML = this.defaults.app_description
+        let metadata = await this.fetch(`metadata`)
+        metadata = JSON.parse(metadata)
+        document.title = metadata.app_title
+        this.element("doc-title").innerHTML = metadata.app_title
+        this.element("doc-description").innerHTML = metadata.app_description
 
         //initialise the element for rendering the output
         this.render_element = this.element('lmt-rendering')
