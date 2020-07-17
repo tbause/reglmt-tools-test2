@@ -165,3 +165,10 @@ footer a {
 pre {
   margin-bottom: 0px;
 }
+
+/* Difference cells in a table */
+.diff {
+  color: black;
+  font-family: monospace;
+  font-style: 0.8em;
+}

@@ -1,6 +1,7 @@
-## Language metadata table prototype
+## Language metadata table prototype - v3.1
 
-This is LMT demo  page works as follows:
+This is LMT demo is an update with v3.1 from v2.0 following the instructions in the
+[lmt-control.pdf](lmt-control.pdf) control document.
 
 1. Loads the LMT into the browser dynamically as xml from a known location
 2. Repeat with the  xslt style sheet from a known location

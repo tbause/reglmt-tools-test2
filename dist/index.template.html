@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Set from config</title>
+    <title>{{ app_title }}</title>
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro|PT+Sans+Caption|Roboto&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/prism-twilight.css" />
     <link rel="icon" href="css/favicon.ico" />
 
-    <script src="proto-lmt.js"></script>
+    <!-- <script src="js/lmt-proto.js"></script> -->
 </head>
 
 <body>
@@ -21,9 +21,13 @@
                 <!-- left gutter -->
             </div>
             <header class="col-md-10">
-                <div id="notifications"></div>
-                <h1 id="doc-title">Error: Should be set from config</h1>
-                <div id="doc-description"></div>
+                <div id="notifications">{{ notifications }}</div>
+                <div><button id="view-client-side" class="btn btn-success col"
+                        onclick="location.replace('/client-side-index.html')">SERVER-SIDE view
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; click for client-side rendering</button>
+                </div>
+                <h1 id="doc-title">{{ app_title }}</h1>
+                <div id="doc-description">{{ &app_description }}</div>
             </header>
             <div class="col">
                 <!-- right gutter -->
@@ -37,11 +41,11 @@
                 <div class="container">
                     <div class="row">
                         <!--  ==========  lmt-narrative.md rendered here  ==========  -->
-                        <div id="lmt-narrative" class="col"></div>
+                        <div id="lmt-narrative" class="col">{{ &narrative }}</div>
                     </div>
                     <div class="row">
                         <!--  ==========  lmt-action-buttons rendered here  ==========  -->
-                        <div id="lmt-action-buttons" class="col"></div>
+                        <div id="lmt-action-buttons" class="col">{{ &buttons }}</div>
                     </div>
                 </div>
             </main>
@@ -53,10 +57,14 @@
     <!--  ==========  LMT XML / tables rendered here  ==========    -->
     <!--
                 The rendered area is intentionally outside the main windows because some
-                of the tables are REALLY wide and require scroll bars.
+                of the conent is REALLY wide and require scroll bars.
+                the configs
+                  static.html.left_gutter
+                  static.html.render_div control this
+                  static.html.right_gutter
                 All bootstrap grid positioning is left to the underlying Javascript
             -->
-    <div id="lmt-rendering" class="col"></div>
+    {{ &rendered_output }}
     <script>
         // Everything should be pretty much loaded into the browser so start the app
         app.start()
