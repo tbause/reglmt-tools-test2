@@ -1,34 +1,43 @@
-# proto-lmt
+# RegLMT-WebTools
 
-Simple app to display LMT client side or server side
+Simple app to serve the SMPTE Language Metadata Table to Machines and Humans
 
-There are 2 ways of testing the rendering. Both will need to
-run a minimal web server. This can be done by installing
-[NodeJS](https://nodejs.org/en/) (Mac, Win, Linux), 
-cloning the repo 
+
+## Installation
+
+### Prerequisites
+
+You will need
+
+* [NodeJS](https://nodejs.org/en/) (Mac, Win, Linux)
+* [Yarn](https://classic.yarnpkg.com/en/docs/install) if you want a slightly slicker sustaining experience
+* [pm2](https://pm2.keymetrics.io/) or some other process manager for production (heroko, azure, amazon etc.)
+
+### Installation
+
+Clone the repo
 
 ```sh
-$ git clone https://github.com/mrmxf/proto-lmt.git
-$ cd proto-lmt
+git clone https://github.com/smpte/RegLMT-WebTools.git
+cd RegLMT-WebTools
 ```
 
-and then typing `npm install`. To see the outputs:
+and then install dependencies with yarn or npm
 
-1. **Client side**
-  * To test the page, you need to run
-    the minimal client and the work is done in the browser.
-  * This method **will crash** many mobile devices because the
-    data sets are big.
-  * Type `npm run client-side` in the root folder.
-  * Navigate to `http://localhost:8080` in a browser on the same machine
-2. **Server Side**
-  * To test the page, you need to run the server and do the rendering on
-    on in the koa server
-  * The `/config/` folder contains the paths to the pages (that can be changed)
-  * Type `npm start`
-  * Navigate to `http://localhost:3000` in a browser on the same machine
+`yarn install --production` or `npm install --production`
 
-All the files needed for deployment are in the `/dist/` folder:
+then start the server
+
+`yarn install --production` or `npm install --production` or `pm2 start lmt-srv/server-lmt.js`
+
+### Test it works
+
+To test the page locally, you need to start the server and connect a browser to the
+correct port. The default would be to connect to `http://localhost:3000` 
+
+### File Structure
+
+The server root folder is `/dist/`
 
 * `/dist/client-side/`
   * `/dist/client-side/index.html` this is the client side demo html file for

@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro|PT+Sans+Caption|Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="css/site.css" />
+<!--    <link rel="stylesheet" href="css/site.css" />
+-->
     <link rel="stylesheet" href="css/prism-twilight.css" />
     <link rel="icon" href="css/favicon.ico" />
-
-    <!-- <script src="js/lmt-proto.js"></script> -->
 </head>
 
 <body>
@@ -22,10 +22,6 @@
             </div>
             <header class="col-md-10">
                 <div id="notifications">{{ notifications }}</div>
-                <div><button id="view-client-side" class="btn btn-success col"
-                        onclick="location.replace('/client-side-index.html')">SERVER-SIDE view
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; click for client-side rendering</button>
-                </div>
                 <h1 id="doc-title">{{ app_title }}</h1>
                 <div id="doc-description">{{ &app_description }}</div>
             </header>

@@ -50,9 +50,10 @@ async function make_lang_table(xml) {
             //reset the cell data
             cell_data.cell = []
 
-            cell_data.cell.push(xmlh.text_of(term[t], 'termId'))
+            cell_data.cell.push(xmlh.text_of(term[t], 'termID'))
             cell_data.cell.push(xmlh.text_of(term[t], 'termName'))
-
+            cell_data.cell.push(xmlh.text_of(term[t], 'termNote', 'label', 'Language Group Tag'))
+            
             //Handle the termNote fields
             cell_data.cell.push(xmlh.text_of(term[t], 'termNote', 'label', 'Audio Language Tag'))
             cell_data.cell.push(xmlh.text_of(term[t], 'termNote', 'label', 'Code'))

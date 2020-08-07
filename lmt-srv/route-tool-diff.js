@@ -23,8 +23,8 @@ const lmt_2_col_diff = require('./lib-diff-2-col')
  * @param {term} t2 term nearest end of array
  */
 function sort_terms(t1, t2) {
-    let a = parseInt(t1.termId[0])
-    let b = parseInt(t2.termId[0])
+    let a = parseInt(t1.termID[0])
+    let b = parseInt(t2.termID[0])
     if (a < b) return 1
     if (a > b) return -1
     return 0
@@ -41,7 +41,7 @@ router.get(`${route_uri}`, async (ctx, next) => {
         return
     }
     let lmtjs = await xmlh.get_xml_as_JSON(xml)
-    lmtjs.Zthes.term.sort(sort_terms)
+    lmtjs["Synaptica-ZThes"].term.sort(sort_terms)
 
     //get the raw lmt data or false
     let xmlref = lmt.xml_ref()
@@ -51,11 +51,12 @@ router.get(`${route_uri}`, async (ctx, next) => {
         return
     }
     let refjs = await xmlh.get_xml_as_JSON(xmlref)
-    refjs.Zthes.term.sort(sort_terms)
+    // refjs.Zthes.term.sort(sort_terms)
 
-    //get the difference view using a custom function for this register
-    let view_HTML = lmt_2_col_diff(lmtjs, refjs)
+    // //get the difference view using a custom function for this register
+    // let view_HTML = lmt_2_col_diff(lmtjs, refjs)
 
+    let view_HTML="<h3>diff is still work in progress</h3>"
     //get the basic data for the page
     let view_data = lmt_body.view_data
 

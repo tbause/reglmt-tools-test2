@@ -41,23 +41,40 @@ async function make_group_table(xml) {
     for (let t in term) {
         //only include group entries
         if (xmlh.is_group_term(term[t])) {
+            //some language groups have no lnaguages !!!!!
+            if(term[t].relation){
             //add a row for every relation
             term[t].relation.forEach((r) => {
                 //reset the cell data
                 cell_data.cell = []
 
-                cell_data.cell.push(xmlh.text_of(term[t], 'termId'))
+                cell_data.cell.push(xmlh.text_of(term[t], 'termID'))
                 cell_data.cell.push(xmlh.text_of(term[t], 'termName'))
                 //Handle the termNote fields
                 cell_data.cell.push(xmlh.text_of(term[t], 'termNote', 'label', 'Language Group Tag'))
                 cell_data.cell.push(xmlh.text_of(term[t], 'termNote', 'label', 'Language Group Code'))
                 //Now the related language
                 cell_data.cell.push(esc(r.relationType[0]))
-                cell_data.cell.push(esc(r.termId[0]))
+                cell_data.cell.push(esc(r.termID[0]))
                 cell_data.cell.push(esc(r.termName[0]))
 
                 row_data.row.push(mustache.render(mtemplate.td, cell_data))
-            })
+            })}else{
+                //reset the cell data
+                cell_data.cell = []
+                //handle language groups with no language codes
+                cell_data.cell.push(xmlh.text_of(term[t], 'termID'))
+                cell_data.cell.push(xmlh.text_of(term[t], 'termName'))
+                //Handle the termNote fields
+                cell_data.cell.push(xmlh.text_of(term[t], 'termNote', 'label', 'Language Group Tag'))
+                cell_data.cell.push(xmlh.text_of(term[t], 'termNote', 'label', 'Language Group Code'))
+                //Now the (empty) related language
+                cell_data.cell.push('-')
+                cell_data.cell.push('-')
+                cell_data.cell.push('-')
+
+                row_data.row.push(mustache.render(mtemplate.td, cell_data))
+            }
         }
     }
 

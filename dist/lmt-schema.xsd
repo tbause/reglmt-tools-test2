@@ -66,9 +66,11 @@
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element type="relationTypeType" name="relationType"/>
-                    <xs:element type="xs:int" name="termId"/>
+                    <xs:element type="xs:int" name="relationWeight"/>
+                    <xs:element type="xs:int" name="termID"/>
                     <xs:element type="xs:string" name="termName"/>
                     <xs:element type="xs:string" name="termVocabulary"/>
+                    <xs:element name="termNote" maxOccurs="unbounded" minOccurs="1" />
                   </xs:sequence>
                   <xs:attribute type="xs:byte" name="weight" use="optional"/>
                 </xs:complexType>
