@@ -9,13 +9,12 @@ h2,
 }
 
 h1 {
-  color: #FFEDB2;
-  background-color: #C2A649;
+  color: #0070AF;
   font-weight: bold;
 }
 
 h2 {
-  color: #C2A649;
+  color: #0070AF;
   font-weight: bold;
 }
 
@@ -23,13 +22,13 @@ h3,
 h4,
 h5,
 h6 {
-  color: #9A3A73;
+  color: #6ABD45;
   font-weight: bold;
   margin-left: 1rem;
 }
 
 .mm-highlight {
-  color: #9A3A73;
+  color: #6ABD45;
 }
 
 h3,
@@ -55,7 +54,6 @@ h6,
 
 footer {
   color: #333333;
-  background-color: #C2A649;
 }
 
 footer p {
@@ -76,27 +74,6 @@ footer a {
   color: #9A3A73;
 }
 
-/* mmHosting */
-.mm-sidebar {
-  /* The fixed yellow stripe down the side */
-  height: 100%;
-  /* Full-height: remove this if you want "auto" height */
-  width: 1rem;
-  /* Set the width of the sidebar */
-  position: fixed;
-  /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1;
-  /* Stay on top */
-  top: 0;
-  /* Stay at the top */
-  left: 0;
-  /* force to the left */
-  background-color: #C2A649;
-  /* mmYellow */
-  overflow-x: hidden;
-  /* Disable horizontal scroll */
-  padding-top: 20px;
-}
 
 /* adjust the left padding to compensate for the side bar */
 .main,
