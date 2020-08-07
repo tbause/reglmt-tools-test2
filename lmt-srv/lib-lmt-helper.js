@@ -13,7 +13,19 @@ const xml2js = require('xml2js')
  * identified by the termVocabulary element equalling `Language Groupings LMT`
  */
 module.exports.is_group_term = function (term) {
-    return term.termVocabulary == 'Language Groupings LMT'
+    if (!term.termNote)
+        return false
+
+    const group_label = 'Language Group Name'
+    let is_a_group= false
+
+    //now see if that label exists on a termNote
+    term.termNote.forEach((e) => {
+        if (e && e.$ && e.$.label && (e.$.label == group_label)) {
+            is_a_group= true
+        }
+    })
+    return is_a_group
 }
 
 /** get the escaped text of an element with a Value of the LMT term matching a given Attribute label
@@ -54,7 +66,8 @@ module.exports.get_xml_as_JSON = get_xml_as_JSON
 /** get the convert LMT to JSON and return the first term elememt
  */
 module.exports.get_first_term_as_JSON = async function (xml) {
-    return get_xml_as_JSON(xml).Zthes.term
+    let lmt_json= await get_xml_as_JSON(xml)
+    return lmt_json["Synaptica-ZThes"].term
 }
 
 /** common mustache templates for views

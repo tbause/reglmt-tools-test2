@@ -17,7 +17,6 @@ module.exports.html = function () {
     buttons_html += mustache.render(button_template, { name: "view-ctrl", text: "control<br>document", url: "/view-control-doc", class: "info" })
     buttons_html += mustache.render(button_template, { name: "lang-table", text: "table<br>lang", url: "/table-lang", class: "info" })
     buttons_html += mustache.render(button_template, { name: "group-table", text: "table<br>group", url: "/table-group", class: "info" })
-    buttons_html += mustache.render(button_template, { name: "tool-validate", text: "LMT<br>convert", url: "/tool-converter", class: "secondary" })
     buttons_html += mustache.render(button_template, { name: "tool-validate", text: "validate<br>tool", url: "/tool-validate", class: "secondary" })
     buttons_html += mustache.render(button_template, { name: "tool-diff", text: "diff<br>tool", url: "/tool-diff", class: "secondary" })
     buttons_html += `</div>`

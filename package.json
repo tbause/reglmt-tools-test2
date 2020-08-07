@@ -1,27 +1,25 @@
 {
-  "name": "proto-lmt",
-  "version": "0.1.0",
-  "description": "Display a LMT either client side or server side",
-  "main": "index.js",
+  "name": "RegLMT-Webtools",
+  "version": "0.8.0",
+  "description": "Display the LMT in various views",
+  "main": "lmt-srv/server-lmt.js",
   "engines": {
     "node": "12.x"
   },
   "scripts": {
     "start": "node lmt-srv/server-lmt.js",
     "pretty": "node lmt-srv/server-lmt.js | pino-pretty",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "client-side": "http-server ./dist/"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "mrmxf",
   "license": "LGPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/mrmxf/proto-lmt/issues"
+    "url": "https://github.com/SMPTE/RegLMT-WebTools/issues"
   },
-  "homepage": "https://github.com/mrmxf/proto-lmt#readme",
+  "homepage": "https://github.com/SMPTE/RegLMT-WebTools#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrmxf/proto-lmt.git"
+    "url": "git+https://github.com/SMPTE/RegLMT-WebTools.git"
   },
   "keywords": [
     "LMT",
@@ -44,7 +42,6 @@
     "mustache": "^4.0.1",
     "pino": "^6.2.1",
     "prismjs": "^1.20.0",
-    "tablesort": "^5.2.0",
     "xml2js": "^0.4.23"
   },
   "devDependencies": {}
