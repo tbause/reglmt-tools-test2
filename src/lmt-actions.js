@@ -3,11 +3,11 @@
  * render all the buttons and link them to the required render function
  */
 
-import action_xml from './lmt-action-xml'
-import action_table_languages from './lmt-action-table-languages'
-import action_table_groups from './lmt-action-table-groups'
-import action_validate from './lmt-action-validate'
-import action_schema from './lmt-action-schema'
+import action_xml from './deprecated/lmt-action-xml'
+import action_table_languages from './deprecated/lmt-action-table-languages'
+import action_table_groups from './deprecated/lmt-action-table-groups'
+import action_validate from './deprecated/lmt-action-validate'
+import action_schema from './deprecated/lmt-action-schema'
 
 class lmt_actions {
 
