@@ -13,7 +13,7 @@
 import marked from 'marked'
 import Prism from 'prismjs'
 
-import lmt_actions from './lmt-actions'
+import lmt_actions from '../lmt-actions'
 
 class thisapp {
 

@@ -13,7 +13,7 @@
 import marked from 'marked'
 import Prism from 'prismjs'
 
-import lmt_actions from './ui/lmt-ui-buttons'
+import lmt_actions from './deprecated/lmt-ui-buttons'
 
 class thisapp {
 

@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Display a LMT either client side or server side",
   "main": "index.js",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "start": "node lmt-srv/server-lmt.js",
     "pretty": "node lmt-srv/server-lmt.js | pino-pretty",
