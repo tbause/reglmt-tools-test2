@@ -43,6 +43,14 @@ const request_logger = require('koa-pino-logger')
 /** the unique app object that will listen on a given port */
 const app = new Koa();
 
+if (process.env.hasOwnProperty('HTTP_USER') && process.env.hasOwnProperty('HTTP_PASSWORD')) {
+  const auth = require('koa-basic-auth');
+  app.use(auth({
+    name: process.env.HTTP_USER,
+    pass: process.env.HTTP_PASSWORD
+  }));
+}
+
 //assume production unless specified in .env
 process.env.NODE_ENV = (undefined == process.env.NODE_ENV) ? 'production' : process.env.NODE_ENV
 
