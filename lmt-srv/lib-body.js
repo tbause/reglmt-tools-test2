@@ -8,7 +8,8 @@ const mustache = require('mustache')
 const marked=require('marked')
 const log = require('pino')(config.get('logging'))
 
-const buttons=require('./lib-buttons')
+const files=require('./lib-files')
+const tabs=require('./lib-tabs')
 
 let status = 200
 
@@ -38,7 +39,8 @@ module.exports.view_data = {
     app_description: config.get('app_description'),
     version: config.get('version'),
     prefix: config.get('url_prefix'),
-    buttons: buttons.html,
+    files: files.html,
+    tabs: tabs.html,
     rendered_output: "",
     narrative: narrative,
     template: template,

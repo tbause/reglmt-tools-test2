@@ -8,46 +8,47 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
-<!--    <link rel="stylesheet" href="css/site.css" />
--->
+    <link rel="stylesheet" href="css/site.css" />
     <link rel="stylesheet" href="css/prism-twilight.css" />
     <link rel="icon" href="css/favicon.ico" />
+    <script src="js/lmt-tabs.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col col-1">
-                <!-- left gutter -->
-            </div>
-            <header class="col-md-10">
-                <div id="notifications">{{ notifications }}</div>
-                <h1 id="doc-title">{{ app_title }}</h1>
-                <div id="doc-description">{{ &app_description }}</div>
-            </header>
-            <div class="col">
-                <!-- right gutter -->
+    <div class="header-wrapper">
+        <div class="container">
+            <div class="row">
+              <header>
+                  <div class="col-md-2">
+                    <img src="/images/smpte-logo.png" alt="SMPTE logo">
+                  </div>
+                  <div class="col-md-10">
+                    <div id="notifications">{{ notifications }}</div>
+                    <h1 id="doc-title">{{ app_title }}</h1>
+                    <div id="doc-description">{{ &app_description }}</div>
+                  </div>
+              </header>
             </div>
         </div>
+    </div>
+    <div class="container">
         <div class="row">
-            <div class="col col-1">
-                <!-- left gutter -->
-            </div>
-            <main class="col-md-10">
+            <main class="col-md-12">
                 <div class="container">
                     <div class="row">
                         <!--  ==========  lmt-narrative.md rendered here  ==========  -->
                         <div id="lmt-narrative" class="col">{{ &narrative }}</div>
                     </div>
                     <div class="row">
-                        <!--  ==========  lmt-action-buttons rendered here  ==========  -->
-                        <div id="lmt-action-buttons" class="col">{{ &buttons }}</div>
+                        <!--  ==========  lmt-files rendered here  ==========  -->
+                        <div id="lmt-files-wrapper" class="col">{{ &files }}</div>
+                    </div>
+                    <div class="row">
+                        <!--  ==========  lmt-tabs rendered here  ==========  -->
+                        <div id="lmt-tabs-wrapper" class="col">{{ &tabs }}</div>
                     </div>
                 </div>
             </main>
-            <div class="col">
-                <!-- right gutter -->
-            </div>
         </div>
     </div>
     <!--  ==========  LMT XML / tables rendered here  ==========    -->
