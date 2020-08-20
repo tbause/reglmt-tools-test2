@@ -41,6 +41,7 @@ module.exports.view_data = {
     prefix: config.get('url_prefix'),
     files: files.html,
     tabs: tabs.html,
+    gtm_id: process.env.hasOwnProperty('GTM_ID') ? process.env.GTM_ID : null,
     rendered_output: "",
     narrative: narrative,
     template: template,
