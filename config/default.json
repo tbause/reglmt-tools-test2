@@ -8,7 +8,7 @@
             "centered_start":"<div class=\"container\"><div class=\"row\">",
             "centered_end":"</div></div>",
             "left_gutter": "<div class=\"col col-1\"><!-- left gutter --></div>",
-            "center_div": "<div id=\"lmt-rendering\" class=\"col-md-10\">",
+            "center_div": "<div id=\"lmt-rendering\" class=\"col-md-12\">",
             "right_gutter": "<div class=\"col-1\"><!-- right gutter --></div>",
             "full_width_start": "<div id=\"lmt-rendering\"><div class=\"container\"><div class=\"row\"><div class=\"col-md-auto\">",
             "full_width_end": "</div></div></div></div>"
