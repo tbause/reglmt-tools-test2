@@ -3,7 +3,7 @@
   <!-- for restricting the termNote Attributes-->
   <xs:simpleType name="LMTtermNoteLabelType">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="Language Group Name" />
+      <xs:enumeration value="Language Group Name TBM" />
       <xs:enumeration value="Language Group Tag" />
       <xs:enumeration value="Language Group Code" />
       <xs:enumeration value="Audio Language Tag" />
