@@ -32,7 +32,7 @@ jobs:
         run: git config --global user.name "Thomas Bause Mason"
 
       - name: Check difference to origin master
-        run: git diff master origin/master
+        run: git status
 
       # Outputs a status message
       - name: Status message
