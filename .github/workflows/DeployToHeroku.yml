@@ -1,6 +1,7 @@
 name: Build and Deploy to Heroku
 
-on: [push]
+on:
+  workflow_dispatch:
 
   deploy-staging:
     runs-on: ubuntu-latest
