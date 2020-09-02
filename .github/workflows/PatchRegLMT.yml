@@ -18,10 +18,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      # Outputs a status message
-      - name: Status message
-        run: echo Setting identity .git/config
         
       # Set the user email
       - name: Set user email
@@ -31,19 +27,13 @@ jobs:
       - name: Set user name
         run: git config --global user.name "Thomas Bause Mason"
 
-      - name: Check difference to origin master
+      # Check Git repository status
+      - name: Check Git repository status
         run: git status
 
-      # Outputs a status message
-      - name: Status message
-        run: echo Deleting LMT Register!
-
-      # Test message to show contents of LMT directory
-      - name: Show content of LMT register directory
-        run: ls
-
-      - name: Show content of LMT register directory
-        run: pwd
+      # Test message to show path of LMT directory
+      # - name: Show path of LMT register directory
+      #  run: pwd
         
       # Remove the existing LMT directory
       # - name: Delete the LMT register directory
@@ -53,22 +43,20 @@ jobs:
       # - name: Commit changes to repo
       #  run: git commit . -m "Deleted LMT Register"
 
-      # Outputs a status message
-      # - name: Status message
-      #  run: echo Add the new LMT register directory
-
       # Add the new LMT register directory
-      # - name: Add new xml register
-      #  run: git subtree add --prefix=dist/lmt https://github.com/tbause/reglmt-test.git HEAD
+      - name: Add new xml register
+        run: git subtree add --prefix=dist/lmt https://github.com/tbause/reglmt-test.git HEAD
 
-      # Outputs a status message
-      # - name: Status message
-       # run: echo Commit LMT Register addition and push repo!
+      - name: Check Git Status
+        run: git status
 
       # Runs a set of commands using the runners shell
-      # - name: Commit changes to repo
-      #  run: git commit . -m "Added new LMT Register"
+      - name: Commit changes to repo
+        run: git commit . -m "Added new LMT Register"
+  
+      - name: Check Git Status
+        run: git status
   
       # Runs a set of commands using the runners shell
-      # - name: Push changes to repo
-      #  run: git push
+      - name: Push changes to repo
+        run: git push -u master
