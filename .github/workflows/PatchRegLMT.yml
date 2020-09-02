@@ -36,12 +36,12 @@ jobs:
       #  run: pwd
         
       # Remove the existing LMT directory
-      # - name: Delete the LMT register directory
-      #  run: git rm -r dist/lmt
+      - name: Delete the LMT register directory
+        run: git rm -r dist/lmt
 
       # Commit the changes before adding the new LMT directory
-      # - name: Commit changes to repo
-      #  run: git commit . -m "Deleted LMT Register"
+      - name: Commit changes to repo
+        run: git commit . -m "Deleted LMT Register"
 
       # Add the new LMT register directory
       - name: Add new xml register
