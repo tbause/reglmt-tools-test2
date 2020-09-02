@@ -31,6 +31,9 @@ jobs:
       - name: Set user name
         run: git config --global user.name "Thomas Bause Mason"
 
+      - name: Check difference to origin master
+        run: git diff master origin/master
+
       # Outputs a status message
       - name: Status message
         run: echo Deleting LMT Register!
