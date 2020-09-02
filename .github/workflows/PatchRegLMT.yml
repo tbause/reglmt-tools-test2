@@ -59,4 +59,4 @@ jobs:
   
       # Runs a set of commands using the runners shell
       - name: Push changes to repo
-        run: git push -u master
+        run: git push
