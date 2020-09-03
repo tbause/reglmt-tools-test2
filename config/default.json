@@ -17,7 +17,7 @@
         "lmt": "lmt.xml",
         "lmt_ref": "lmt-ref.xml",
         "narrative": "lmt-narrative.md",
-        "root": "dist",
+        "root": "dist/lmt",
         "schema":"lmt-schema.xsd",
         "template": "index.template.html",
         "style":{
