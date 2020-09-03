@@ -1,4 +1,4 @@
-name: Build and Deploy to Heroku
+name: Build-and-Deploy-to-Heroku
 
 on:
   workflow_dispatch:
