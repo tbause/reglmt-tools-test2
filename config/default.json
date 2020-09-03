@@ -13,13 +13,13 @@
             "full_width_start": "<div id=\"lmt-rendering\"><div class=\"container\"><div class=\"row\"><div class=\"col-md-auto\">",
             "full_width_end": "</div></div></div></div>"
         },
-        "control-doc":"lmt/lmt-control.pdf",
-        "lmt": "lmt/lmt.xml",
-        "lmt_ref": "lmt/lmt-ref.xml",
-        "narrative": "lmt/lmt-narrative.md",
+        "control-doc":"lmt\\lmt-control.pdf",
+        "lmt": "lmt\\lmt.xml",
+        "lmt_ref": "lmt\\lmt-ref.xml",
+        "narrative": "lmt\\lmt-narrative.md",
         "root": "dist",
-        "schema":"lmt/lmt-schema.xsd",
-        "template": "lmt/index.template.html",
+        "schema":"lmt\\lmt-schema.xsd",
+        "template": "lmt\\index.template.html",
         "style":{
             "diff":{
                 "added":" style=\"background:#ddffdd;\"",
